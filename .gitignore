@@ -17,7 +17,6 @@ share/
 accessories/freeglut32.vc14.dll
 accessories/freeglut64.vc14.dll
 accessories/QuartzMS.TTF
-scripts/matrixRandom.py
 simpylc/install_requirements.sh
 simpylc/simpylc_howto.pdf
 simpylc/test_simpylc.sh
