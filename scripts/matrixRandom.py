@@ -8,9 +8,8 @@
 # nu dus nog opdelen in lijstjes met de lengte van het aantal kolommen
 
 
-import random as randrange
+
 import random as ra
-import random
 
 
 matrixRows = ra.randint(1,4)
@@ -33,13 +32,3 @@ print(createTheRandomMatrix (matrixRows,matrixCollums))
 
 
 
-# low = -9
-# high = 9
-# in_r = random.randint(-9,9)
-# col1 = random.randint(1,4)
-# kol1 = random.randint(1,4)
-
-
-
-# Rij1 = [random.choices(range(low,high), k=col1) for _ in range(kol1)]
-# print(Rij1)
