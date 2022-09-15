@@ -3,30 +3,32 @@ import math as m
 
 
 
-# trainingSet = (
-# 	((
-# 			(1,1,1),
-# 			(1,0,1),
-# 			(1,1,1)
-# 	), 'O'),
-# 	((
-# 			(0,1,0),
-# 			(1,0,1),
-# 			(0,1,0)
-# 	), 'O'),
-# 	((
-# 			(0,1,0),
-# 			(1,1,1),
-# 			(0,1,0)
-# 	), 'X'),
-# 	((
-# 			(1,0,1),
-# 			(0,1,0),
-# 			(1,0,1)
-# 	), 'X')
-# )
-# input = trainingSet()
-# print (input)
+trainingSet = (
+	((
+			(1,1,1),
+			(1,0,1),
+			(1,1,1)
+	), 'O'),
+	((
+			(0,1,0),
+			(1,0,1),
+			(0,1,0)
+	), 'O'),
+	((
+			(0,1,0),
+			(1,1,1),
+			(0,1,0)
+	), 'X'),
+	((
+			(1,0,1),
+			(0,1,0),
+			(1,0,1)
+	), 'X')
+)
+input = trainingSet[0][0][0][0]
+print (input)
+
+
 
 # input = []
 # set1 = trainingSet[0][0]
@@ -61,5 +63,16 @@ import math as m
 # l = [a * b for a,b in zip(input, weightO)]
 # print("O ",l, ' ', "X ",k)
 
-blah = m.exp(somX)/(m.exp(somX)+m.exp(somO))
-print(blah)
+# blah = m.exp(somX)/(m.exp(somX)+m.exp(somO))
+# print(blah)
+
+"""
+
+Weights maken met 9x1 matrix(tuple) vec:
+def initWeights(vec):
+    n = len(vec)
+    weights = []
+    for i in range(0,n):
+        weights.append(1.0)
+    return weights
+"""
