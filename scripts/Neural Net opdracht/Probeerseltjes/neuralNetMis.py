@@ -31,7 +31,7 @@ input2 = trainingSet[1][0]
 print ("input set 2",input2)
 
 
-weightsX = [1,1,1,1,1,1,1,1,1,1]
+weightsX = np.ones(9)
 weightsO = [1,1,1,1,1,1,1,1,1,1]
 
 
