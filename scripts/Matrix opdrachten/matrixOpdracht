@@ -1,0 +1,51 @@
+# in dit programma wil ik dat self en 2 als objecten kunnen worden vermenigvuldigd, opgeteld en worden afgetrokken. Het resultaat komt in matrix3 
+# ik houd er rekeningn mee dat ook later nog andere mutaties moeten kunnen worden toegevoegd... als dat lukt dan he... want ik snap er echt de ballen van...
+# bedoel... heb weleens in het duister getast maar de tering waarom dit niet wil landen bij me... Achja ik kan ook natuurlijk drugsgebruiker worden ofzo... kom der wel...
+
+
+class Matrix:
+    def __init__(self, vectorList):
+        self.vectorList = vectorList
+        
+
+    
+
+
+    def matrixMultiply(self, matrix2):
+        vectorList3 = None 
+        vectorList2 = matrix2.vectorlist
+        if len(self.vectorlist[0]) == len (vectorList2):
+            for rowIndex in range(len(self)):
+                for collumIndex in range(len(vectorList2[0])):
+                    for itteraties in range(len(self[0])):
+                        vectorList3[rowIndex][collumIndex] += self[rowIndex][itteraties] * vectorList2[itteraties][collumIndex]
+        else:  
+            print ("NEE JOH, dat kan helemaal niet, het aantal kolommen van de eerste matrix moet gelijk zijn aan het aantal rijen van de tweede")
+        return Matrix(vectorList3)
+    
+    
+    def matrixAddition(self,matrix2):
+        if ((len(self)) == (len(matrix2))) and if ((len(self[0]))==(len(matrix2[0]))):#deze checkt niet of elke list van lists gelijk is, dus de kolommen voorbij de eerste rij en kolom kunnen te weinig data punten bevatten. mocht ik dit draaiende krijgen voor het einde van dit jaar, dan zou t mooi zijn om dmv list comprehension deze check af te maken voor de volledige matrix.
+            matrix3 = [[self[R][C] + matrix2[R][C] for C in range(len(self[0]))]for R in range(len(self))]#C zijn rijen (rows) en R over kolommen (collums), en zijn hier verkeerd om gebruikt omdat ik dom ben en god niet bestaat...
+        print(f"Lekker bezig hier komt de volgende matrix uit:",/n,{matrix3})
+        else:
+            print ("Zeg, die matrixen van jou... vind je daar nou zelf van? Moeten natuurlijk dezelfde dimensies hebben om te worden opgeteld bij elkaar... suffert")
+        
+        return matrix3
+
+
+    def matrixSubtraction(self,matrix2):
+        if ((len(self)) == (len(matrix2))) and if ((len(self[0]))==(len(matrix2[0]))):#deze checkt niet of elke list van lists gelijk is, dus de kolommen voorbij de eerste rij en kolom kunnen te weinig data punten bevatten. mocht ik dit draaiende krijgen voor het einde van dit jaar, dan zou t mooi zijn om dmv list comprehension deze check af te maken voor de volledige matrix.
+            matrix3 = [[self[R][C] - matrix2[R][C] for C in range(len(self[0]))]for R in range(len(self))]
+        return matrix3
+        print(f"Lekker bezig hier komt de volgende matrix uit:",/n,{matrix3})
+        else:
+            print ("Zeg, die matrixen van jou... vind je daar nou zelf van? Moeten natuurlijk dezelfde dimensies hebben om te worden afgetrokken van elkaar... suffert")
+            
+            
+
+
+
+
+def main():
+    pass
