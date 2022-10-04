@@ -1,0 +1,63 @@
+Het doel van de projectevaluatie is tweeledig. Aan de ene kant
+wordt in dit document aandacht besteed aan de meta-functionele overwegingen
+die gemaakt worden tijdens het project, daarnaast wordt in dit document
+aandacht besteed aan de individuele ervaringen gedurende dit project. 
+
+
+Meta functionele eisen: het gaat hier om 
+bedrijfsmatige, 
+ethisch-maatschappelijke,
+juridische, 
+regulerings- en technische kaders die de directe functionele eisen overstijgen. 
+
+
+Wat is het verschil tussen een neuraal netwerk en een expliciet algoritme? Dit betreft onder andere de mate waarin:
+o Detailkennis over de technologie van het te besturen systeem nodig is om de besturing te maken
+o Het gedrag van de besturing in specifieke situaties te verklaren is
+o Het gedrag van de besturing in nieuwe situaties te voorspellen is
+o Een mens ethisch gezien verantwoordelijk is, dan wel juridisch verantwoordelijk kan worden gesteld voor ongelukken
+
+De projectevalutatie is een groeidocument, met andere woorden, hij wordt gaandeweg het project verder uitgewerkt. Vanwege het informele karakter van dit document hoeft hierop geen versiebeheer te worden toegepast
+
+
+Tips & Tricks
+1. Vergelijk de LIDAR-besturingsstrategie in method lidarSweep met de SONAR-
+besturingsstrategie in functie sonarSweep. Probeer in samenspraak met andere
+cursisten en, indien nodig, de docent, te komen tot een formulering in “gewoon
+nederlands” van beide strategieen en de verschillen ertussen.
+
+
+
+2. Laat het voertuig daarna achtereenvolgens met beide strategieen rijden op de
+bijpassende baan (lidar.track of sonar.track) en de bovengenoemde gegevens loggen.
+
+
+
+3. Maak vervolgens in Python een fully connected neuraal netwerk met tussen de 2 en
+de 5 lagen en per laag tussen de 8 en de 256 nodes met behulp van SciKitLearn.
+Gebruik een relu activation function. Er is één analoge uitgangsnode. Gebruik de
+eerder gegenereerde logfiles als trainingsdata. Houd rekening met het volgende:
+Applied Artificial Intelligence – Hogeschool Rotterdam
+
+• Omdat alleen op de trainingsbaan hoeft te worden gereden, is de trainingset gelijk
+aan de testset. Er hoeft dus, net als bij de Formule 1, geen rekening gehouden te
+worden met overfitting, het gaat alleen om de prestaties op dit “circuit”.
+
+• Begrens als eerste stap alle afstanden op 20 meter, om ill conditioning te voorkomen.
+
+• Pas daarna voorafgaand aan de training per kolom uniforme schaling toe naar het
+bereik [-1, 1]
+
+• Vergeet niet weer terug te schalen bij het gebruik van het getrainde netwerk om de
+auto te besturen!
+
+4. Probeer verschillende laagbreedtes en aantallen lagen uit. Je mag ook nog andere
+zaken proberen, zoals een andere activation function. Kijk wat het beste werkt.
+
+5. Maak, als je een optimum hebt bereikt voor LIDAR en SONAR, precies hetzelfde
+netwerk met TensorFlow/Keras. Wat zijn de verschillen?
+
+6. Wat heeft meer invloed op het resultaat, de verschillen tussen enerzijds SciKitLearn
+en anderzijds Tensorflow/Keras of de verschillen in gekozen netwerk-topologie,
+ongeacht welke library je gebruikt?
+
