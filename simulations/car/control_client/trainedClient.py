@@ -38,21 +38,22 @@ import math as mt
 import sys as ss
 import os
 import socket as sc
-
+import numpy as np
 ss.path +=  [os.path.abspath (relPath) for relPath in  ('..',)] 
 
 import socket_wrapper as sw
 import parameters as pm
 
 #getrainde model importeren met pickle
-sonarModel = pi.load(open('pickle_model.pkl', rb))
-lidarModel
+sonarModel = pi.load(open('pickle_model.pkl', 'rb'))
+#lidarModel
 
 
-class HardcodedClient:
+class TrainedClient:
     def __init__ (self):
         self.steeringAngle = 0
-
+        #model initialiseren
+        self.model = None
         with open (pm.sampleFileName, 'w') as self.sampleFile:
             with sc.socket (*sw.socketType) as self.clientSocket:
                 self.clientSocket.connect (sw.address)
@@ -76,8 +77,12 @@ class HardcodedClient:
             
         if 'lidarDistances' in sensors:
             self.lidarDistances = sensors ['lidarDistances']
+            # if self.model == None:
+            #     self.model = lidarModel
         else:
             self.sonarDistances = sensors ['sonarDistances']
+            if self.model == None:
+                self.model = sonarModel
 
     def lidarSweep (self):
         nearestObstacleDistance = pm.finity
@@ -106,10 +111,13 @@ class HardcodedClient:
         self.targetVelocity = pm.getTargetVelocity (self.steeringAngle)
 #Hiero komt het model
     def sonarSweep (self):
-# deze regel iig nodig, bepaalt de snelheid adhv de stuurhoek        
+        #Deze 
+        newSonarDist = self.model.predict(np.array([self.sonarDistances]))
+
+        # deze regel iig nodig, bepaalt de snelheid adhv de stuurhoek        
         self.targetVelocity = pm.getTargetVelocity(self.steeringAngle)        
-# uitkomst van het model adhv input bepaalt de steering angle hieronder:        
-        self.steeringAngle = sonarModel.predict(self.sonarDistances)
+        # uitkomst van het model adhv input bepaalt de steering angle hieronder:        
+        self.steeringAngle = float(newSonarDist[0])
 
 
 
@@ -152,4 +160,4 @@ class HardcodedClient:
         else:
             self.logSonarTraining ()
 
-HardcodedClient ()
+TrainedClient()

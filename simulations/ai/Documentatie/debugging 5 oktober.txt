@@ -1,0 +1,55 @@
+Debugging 5 oktober
+
+Startpunt: met hulp van Dennis en David (en website van Jeroen) tot lerend model gekomen. 
+
+Doel vandaag: model inplementeren tot besturing van de auto.
+
+Eerste poging: 
+
+Sonar sweep verwijderd en vervangen door 2 functies (steering angle en velocity) beide op basis van de uitkomst van het model
+
+Eerste bugs: aanhalingstekens en haakjes verkeerd/vergeten (zucht)
+
+Eerste echte bug: model kan de rauwe sensor data niet inlezen doordat deze space separated is, ik heb het model op CSV getraind (destijds omdat het makkelijk leek, nu spijt van)
+De error:
+ValueError: Expected 2D array, got 1D array instead:
+array=[1.4881 1.298  1.7864].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.       
+PS C:\Users\Anton\MakeAIWork> 
+
+	optie1 : model hertrainen met nieuwe data...
+	optie2 : rauwe sonar data omzetten naar comma separated of numpy array
+	
+Voorkeur voor optie 2 : want nog weinig met numpy gedaan (optie 1 is een stuk mooier, maar didactisch niet optimaal nu)
+
+Model gebruikt nu self.sonarDistances
+
+Nieuw moet dus worden: model gebruikt newSonarDist
+newSonarDist = np.array(self.sonarDistances)
+	Dit was een eerste poging... en hij lijkt al te werken... geen reshape of zoiets toegepast... doet t gewoon... opzicht logisch, maar ben gewoon knetter verbaasd om dit eens mee te maken... zo erg dat ik het ff moet opschrijven...
+	
+Echte error 2:
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+Duuuusch... google
+Google zegt dat de poorten niet matchen... maar heb niets veranderd dus snap em ff niet
+Klasgenoten: world herstarten, niet anders op te lossen
+
+Echte error 3(en4,5,6):
+UnboundLocalError: local variable 'newSonarDist' referenced before assignment
+Ah ok ik ben dom, regeltjes omgedraaid
+
+Echte error 4
+
+ValueError: Expected 2D array, got 1D array instead:
+array=[1.4683 1.2853 1.7756].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.  
+
+Aight dus toch reshape nodig 
+
+Echte error 5
+
+TypeError: Object of type ndarray is not JSON serializable
+Krijg toch de...
+
+Als ik het goed begrijp is de data niet in floats in de array gekomen, deze dus omzetten naar floats
