@@ -111,13 +111,13 @@ class TrainedClient:
         self.targetVelocity = pm.getTargetVelocity (self.steeringAngle)
 #Hiero komt het model
     def sonarSweep (self):
-        #Deze 
-        newSonarDist = self.model.predict(np.array([self.sonarDistances]))
+        #Deze regel 
+        modelSteeringAngle = self.model.predict(np.array([self.sonarDistances]))
 
         # deze regel iig nodig, bepaalt de snelheid adhv de stuurhoek        
         self.targetVelocity = pm.getTargetVelocity(self.steeringAngle)        
         # uitkomst van het model adhv input bepaalt de steering angle hieronder:        
-        self.steeringAngle = float(newSonarDist[0])
+        self.steeringAngle = float(modelSteeringAngle[0])
 
 
 

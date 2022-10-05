@@ -53,3 +53,12 @@ TypeError: Object of type ndarray is not JSON serializable
 Krijg toch de...
 
 Als ik het goed begrijp is de data niet in floats in de array gekomen, deze dus omzetten naar floats
+
+
+Breekpunt:
+
+onverwachts is de deadline naar voren gehaald de bovenstaande problemen zijn met copy/paste opgelost.
+
+De auto rijdt nu, maar rijdt bijna rechtdoor de baan af. 
+
+Model training moet dus worden aangepast
