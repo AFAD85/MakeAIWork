@@ -1,0 +1,9 @@
+'''
+main functie voor in elke code die gerunt wordt (dus scripts, niet stukjes code (zoals functies/klassen) die elders worden geimporteerd)
+'''
+
+def main():
+    
+    
+if __name__ == '__main__'
+    main()
