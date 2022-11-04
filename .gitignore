@@ -134,3 +134,6 @@ simpylc/simulations/train/__pycache__/physics.cpython-310.pyc
 simpylc/simulations/train/__pycache__/timing.cpython-310.pyc
 simpylc/simulations/train/__pycache__/world.cpython-310.pyc
 projects/apple_disease_classification/data/Test
+projects/apple_disease_classification/data
+projects/apple_disease_classification/data/Train/Reject_Apples
+projects/
