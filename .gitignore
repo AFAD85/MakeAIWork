@@ -137,3 +137,6 @@ projects/apple_disease_classification/data/Test
 projects/apple_disease_classification/data
 projects/apple_disease_classification/data/Train/Reject_Apples
 projects/
+simpylc/simulations/car/__pycache__/physics.cpython-311.pyc
+simpylc/simulations/car/__pycache__/dimensions.cpython-311.pyc
+simpylc/simulations/car/__pycache__/control_server.cpython-311.pyc
