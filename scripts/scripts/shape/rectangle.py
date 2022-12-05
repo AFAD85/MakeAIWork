@@ -11,3 +11,6 @@ class Rectangle(Shape):
 
     def area(self):
         return round(self.width * self.height)
+    
+x = Rectangle(10,10)
+print(x.area())
